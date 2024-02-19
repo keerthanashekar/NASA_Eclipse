@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eclipse Predictor</title>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('' ); background-repeat: no-repeat ; background-size: cover;background-position: center; background-attachment: fixed;
+            background-color: black;
+
+        }
+        #moon {
+            background-color: #9E9E9E; /* Gray */
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+
+        }
+        .info {
+            margin-top: 20px;
+            font-style: italic;
+            color: aliceblue;
+        }
+        h1{
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+<h1>Eclipse Predictor</h1>
+<div id="moon"></div>
+<div class="info"></div>
+
+<label for="moonPosition" style="color: aliceblue;"> Moon's Position (0° to 360°): </label>
+<input type="number" id="moonPosition" min="0" max="360" value="0" step="1">
+<button onclick="predictEclipse()";>Predict Eclipse</button>
+
+<script>
+        const moon = document.getElementById('moon');
+        const info = document.querySelector('.info');
+
+        function predictEclipse() {
+            const moonPosition = parseFloat(document.getElementById('moonPosition').value);
+
+            // Simple example: Predict an eclipse if the Moon is within 10° of the Sun
+            if (Math.abs(moonPosition - 180) <= 10) {
+                info.innerHTML = "Possible Solar Eclipse on the next New Moon.";
+            } else if (Math.abs(moonPosition - 0) <= 10 || Math.abs(moonPosition - 360) <= 10) {
+                info.innerHTML = "Possible Lunar Eclipse on the next Full Moon.";
+            } else {
+                info.innerHTML = "No eclipse predicted for this Moon position.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Solar Eclipse</title>
+    <style>
+        html, body {
+    height: 100%; /* Set the height of HTML and body to 100% */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    overflow-y: hidden;
+    background-color: black;
+
+}
+.row2::-webkit-scrollbar{
+    display: none;
+  }
+
+.right-content::-webkit-scrollbar{
+    display: none;
+  }
+/* Overall container */
+.container {
+    display: flex;
+    height: 100vh; /*Set the height to 100% of the viewport height*/
+}
+
+/* Left fixed column */
+.left-image {
+    width: 50%;
+    height: 100%; /* Set the height to 100% of the viewport height */
+    background-image:url('https://cdn.britannica.com/62/157762-050-BA2AE9DF/eclipse-sun.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+}
+
+.left-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    font-size: xx-large;
+  }
+
+/* Right side content */
+.right-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /*Set the height to 100% of the viewport height */
+    width: 50%;
+    overflow-y: scroll;
+}
+
+/* Two equal halves on the right side */
+.right-content .row1-image {
+    width: 100%;
+    height: 100%; /* Set the height to 100% of the viewport height */
+    object-fit: cover;
+    background-image:url('https://cdn.mos.cms.futurecdn.net/tm4QNWLdBhk5KZkyUzDnmn.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex: 1;
+    /* border: 1px solid #ccc; */
+    /* margin: 5px; */
+    /* padding: 10px; */
+}
+
+.right-content .row1-text{
+    text-align: center;
+    position: absolute;
+    top: 31%;
+    left: 61%;
+    /* transform: translate(-50%, -50%);  */
+    color: rgb(255, 255, 255);
+    font-size: x-large;
+}
+
+
+.right-content .row2 {
+    flex: 1;
+    background-color: black;
+    color: white;
+    height: 400px;
+    overflow-y: scroll;
+    /* border: 1px solid #ccc;
+    margin: 5px;
+    padding: 10px; */
+}
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class = "left-image">
+        <div class="left-text">
+            <!-- Left column content goes here -->
+            <h2>Total Solar Eclipse</h2>
+            <!-- <p>Fixed content on the left.</p> -->
+        </div>
+    </div>
+    <div class="right-content">
+        <!-- Right column content goes here -->
+        <div class="row1-image">
+            <div class="row1-text">
+                <h2>Phases of Total Solar Eclipse</h2>
+            </div>
+        </div>
+        <div class="row2">
+            <p>A total solar eclipse happens when the Moon passes between the Sun and Earth, completely blocking the face of the Sun. People located in the center of the Moon’s shadow when it hits Earth will experience a total eclipse. The sky will darken, as if it were dawn or dusk. Weather permitting, people in the path of a total solar eclipse can see the Sun’s corona, the outer atmosphere, which is otherwise usually obscured by the bright face of the Sun. A total solar eclipse is the only type of solar eclipse where viewers can momentarily remove their eclipse glasses (which are not the same as regular sunglasses) for the brief period of time when the Moon is completely blocking the Sun. The next total solar eclipse in the U.S. will be on April 8, 2024.</p>
+            <p>Precautions for Total Solar Eclipse:<br>
+                View the Sun through eclipse glasses or a handheld solar viewer during the partial eclipse phases before and after totality.
+                You can view the eclipse directly without proper eye protection only when the Moon completely obscures the Sun’s bright face – during the brief and spectacular period known as totality. (You’ll know it’s safe when you can no longer see any part of the Sun through eclipse glasses or a solar viewer.)
+                As soon as you see even a little bit of the bright Sun reappear after totality, immediately put your eclipse glasses back on or use a handheld solar viewer to look at the Sun.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

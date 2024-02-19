@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partial Solar Eclipse</title>
+    <style>
+    html, body {
+    height: 100%; /* Set the height of HTML and body to 100% */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    overflow-y: hidden;
+    background-color: black;
+}
+.row2::-webkit-scrollbar{
+    display: none;
+  }
+
+.right-content::-webkit-scrollbar{
+    display: none;
+  }
+
+body::-webkit-scrollbar {
+    width: 0; /* Chrome, Safari, and Opera */
+}
+/* Overall container */
+.container {
+    display: flex;
+    height: 100vh; /Set the height to 100% of the viewport height/
+}
+
+/* Left fixed column */
+.left-image {
+    width: 50%;
+    height: 100%; /* Set the height to 100% of the viewport height */
+    background-image:url('https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2017/08/a_partial_solar_eclipse_seen_from_space/17109542-1-eng-GB/A_partial_solar_eclipse_seen_from_space_pillars.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+}
+
+.left-text {
+    text-align: center;
+    position: absolute;
+    top: 62%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+  }
+
+/* Right side content */
+.right-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /*Set the height to 100% of the viewport height */
+    width: 50%;
+    overflow-y: scroll;
+}
+
+/* Two equal halves on the right side */
+.right-content .row1-image {
+    width: 100%;
+    height: 100%; /* Set the height to 100% of the viewport height */
+    object-fit: cover;
+    background-image:url('https://images.unsplash.com/photo-1503416997304-7f8bf166c121?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex: 1;
+    /* border: 1px solid #ccc; */
+    /* margin: 5px; */
+    /* padding: 10px; */
+}
+
+.right-content .row1-text{
+    text-align: center;
+    position: sticky;
+    top: 3%;
+    left: 61%;
+    /* transform: translate(-50%, -50%);  */
+    color: rgb(255, 255, 255);
+    font-size: x-large;
+}
+
+
+.right-content .row2 {
+    flex: 1;
+    background-color: black;
+    color: white;
+    height: 400px;
+    overflow-y: scroll;
+    /* border: 1px solid #ccc;
+    margin: 5px;
+    padding: 10px; */
+}
+  </style>
+</head>
+<body>
+<div class="container">
+    <div class = "left-image">
+        <div class="left-text">
+            <!-- Left column content goes here -->
+            <h2>Partial Solar Eclipse</h2>
+            <!-- <p>Fixed content on the left.</p> -->
+        </div>
+    </div>
+    <div class="right-content">
+        <!-- Right column content goes here -->
+        <div class="row1-image">
+            <div class="row1-text">
+                <h2>Phases of Partial Solar Eclipse</h2>
+            </div>
+        </div>
+        <div class="row2">
+            <p>A partial solar eclipse happens when the Moon passes between the Sun and Earth but the Sun, Moon, and Earth are not perfectly lined up. Only a part of the Sun will appear to be covered, giving it a crescent shape. During a total or annular solar eclipse, people outside the area covered by the Moon’s inner shadow see a partial solar eclipse.</p>
+            <p>Precautions for Partial Solar Eclipse:<br>
+                Partial solar eclipses are different from total solar eclipses – there is no period of totality when the Moon completely blocks the Sun's bright face. Therefore, during partial or annular solar eclipses, it is never safe to look directly at the eclipse without proper eye protection.</p>
+
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

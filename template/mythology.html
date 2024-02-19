@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Page Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            
+        }
+
+        .row1 {
+            flex: 1;
+            color: #f0f0f0; /* Adjust the background color as needed */
+            background-image: url('https://wallpapercave.com/wp/wp3493594.png');
+        }
+
+        .row1 p {
+            text-align: center;
+            font-size: xx-large;
+            font-family: 'Times New Roman', Times, serif;
+            color: orange;
+            font-weight: bold;
+        }
+
+        .row2 {
+            flex: 1;
+            color: #f0f0f0;
+            display: flex;
+            background-image: url('https://wallpapercave.com/wp/wp3493594.png');
+        }
+
+        .column {
+            flex: 1;
+            color: #f0f0f0;
+            font-size: xx-large;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-image: url('https://wallpapercave.com/wp/wp3493594.png'); 
+            /* Add borders to the columns if desired */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row1">
+            <p>Mythology over Eclipses</p>
+        </div>
+        <div class="row2">
+            <div class="column">
+                <p style="text-align: center;">Chinese Mythology</p>
+                <img src="https://kidseclipse.com/wp-content/uploads/2017/04/DragonEatingTheMoon_225.jpg" style="margin-left: 50px; border-radius: 10%; width: 500px; height: 300px; margin-left: 15%;">
+                <p style="text-align: justify; font-family: 'Times New Roman', Times, serif; font-size: x-large;">
+                    In ancient China it was commonly held that solar eclipses occurred when a celestial dragon attacked and devoured the Sun. Chinese eclipse records are some of the oldest in the world and go back more than 4,000 years; at least one simply states "the Sun has been eaten." To frighten away the dragon and save the Sun, people would bang drums and make loud noises during an eclipse. Since the Sun always returned after this ruckus-making, it is easy to see how the tradition was perpetuated. Interestingly, it seems the ancient Chinese were not particularly bothered by lunar eclipses, and one text from about 90 BCE dismisses them as "a common matter."
+                </p>
+            </div>
+            <div class="column">
+                <p style="text-align: center;">Indian Mythology</p>
+                <img src="https://hinduismtoday.b-cdn.net/wp-content/uploads/2004/10/melastory2004-4.jpg" style="margin-left: 120px; border-radius: 10%; width: 500px; height: 300px;">
+                <p style="text-align: justify; font-family: 'Times New Roman', Times, serif; font-size: x-large;">
+                    Ancient Hindu mythology provides a rather graphic and disturbing explanation for solar eclipses. According to legend, a cunning demon named Rahu sought to drink the nectar of the gods and thus attain immortality. Disguised as a woman, Rahu attempted to attend a banquet of the gods and was discovered by Vishnu. As punishment, the demon was promptly beheaded, and it is his decapitated head flying across the sky that darkens the Sun during an eclipse. Some versions say that Rahu was actually able to steal a sip of the nectar but was beheaded before the elixir reached the rest of his body. His immortal head, in perpetual pursuit of the Sun, sometimes catches and swallows it, but the Sun quickly reappears, as Rahu has no throat.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

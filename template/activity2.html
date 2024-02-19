@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moon Position Simulator </title>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('' ); background-repeat: no-repeat ; background-size: cover;background-position: center; background-attachment: fixed;
+            background-color: black;
+        }
+        .sun {
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .moon {
+            background-color: gray;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: top 2s, background-color 2s;
+        }
+        .info {
+            margin-top: 20px;
+            font-style: italic;
+            color: aliceblue;
+        }
+        h1{
+            color: aliceblue    ;
+        }
+    </style>
+</head>
+<body>
+<h1>Moon Position Simulator</h1>
+<div class="sun"></div>
+<div class="moon"></div>
+<div class="info"></div>
+
+<button onclick="simulateSolarEclipse()">Simulate Solar Eclipse</button>
+<button onclick="simulateLunarEclipse()">Simulate Lunar Eclipse</button>
+
+<script>
+        const moon = document.querySelector('.moon');
+        const info = document.querySelector('.info');
+
+        function simulateSolarEclipse() {
+            moon.style.top = '43.5%';
+            moon.style.backgroundColor = 'black';
+            moon.style.center = '100%'; // Add this line to center the moon over the sun
+            info.innerHTML = "During a solar eclipse, the Moon blocks the Sun's light.";
+        }
+
+        function simulateLunarEclipse() {
+            moon.style.backgroundColor = 'red';
+            moon.style.top = '25%';
+            info.innerHTML = "During a lunar eclipse, the Earth's shadow falls on the Moon.";
+        }
+
+    </script>
+</body>
+</html>
+
+Moon Position Simulator Page

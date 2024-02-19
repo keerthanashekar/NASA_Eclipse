@@ -1,0 +1,319 @@
+Eclipse Detection
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eclipse</title>
+  <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .container {
+            font-size: 10px;
+            width: 40em;
+            height: 40em;
+            position: relative;
+            perspective: 600px; /* Add perspective to create a 3D effect */
+        }
+
+        .sun {
+            position: absolute;
+            top: 15em;
+            left: 15em;
+            width: 10em;
+            height: 10em;
+            background-color: yellow;
+            border-radius: 50%;
+            box-shadow: 0 0 3em white;
+        }
+
+        .earth, .moon {
+            position: absolute;
+            border-style: solid;
+            border-color: white;
+            border-width: 0.1em;
+            border-radius: 50%;
+        }
+
+        .earth {
+            top: 5em;
+            left: 5em;
+            width: 30em;
+            height: 30em;
+            animation: orbit-earth 36.5s linear infinite; /* Elliptical orbit for Earth */
+        }
+
+        .moon {
+            top: 0;
+            right: 0;
+            width: 8em;
+            height: 8em;
+            animation: orbit-moon 2.7s linear infinite; /* Elliptical orbit for the Moon */
+        }
+
+        .earth::before,
+        .moon::before {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .earth::before {
+            top: 2.8em;
+            right: 2.8em;
+            width: 3em;
+            height: 3em;
+            background-color: aqua;
+        }
+
+        .moon::before {
+            top: 0.8em;
+            right: 0.2em;
+            left: 6.5em;
+            width: 1.2em;
+            height: 1.2em;
+            background-color: silver;
+        }
+
+        .eclipse-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+        }
+
+        @keyframes orbit-earth {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes orbit-moon {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Define a class to apply 3D transformation on click */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 10.0; /* Increase opacity for a darker appearance */
+            animation: moveStar 2s linear infinite, twinkling 1.5s infinite; /* Adjust durations */
+        }
+
+        @keyframes moveStar {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100vh);
+            }
+        }
+
+        @keyframes moveStar {
+            0% {
+                transform: translate(-10%, -10%);
+            }
+            100% {
+                transform: translate(110%, 110%);
+            }
+        }
+
+        @keyframes twinkling {
+            0% {
+                opacity: 4.0; /* Lower opacity for the twinkling effect */
+            }
+            100% {
+                opacity: 6.0; /* Increase opacity when stars are fully visible */
+            }
+        }
+
+        /* Randomize the starting positions of stars */
+        .star:nth-child(1) {
+            top: 10%;
+            left: 15%;
+            animation-delay: 0.2s;
+        }
+
+        .star:nth-child(2) {
+            top: 30%;
+            left: 80%;
+            animation-delay: 0.5s;
+        }
+
+        .star:nth-child(3) {
+            top: 50%;
+            left: 45%;
+            animation-delay: 0.7s;
+        }
+
+        .star:nth-child(4) {
+            top: 70%;
+            left: 20%;
+            animation-delay: 0.9s;
+        }
+
+        .star:nth-child(5) {
+            top: 90%;
+            left: 70%;
+            animation-delay: 1.2s;
+        }
+
+        /* Add more stars with different delays for randomness */
+        .star:nth-child(6) {
+            top: 20%;
+            left: 60%;
+            animation-delay: 1.8s;
+        }
+
+        .star:nth-child(7) {
+            top: 80%;
+            left: 10%;
+            animation-delay: 2.1s;
+        }
+    </style>
+</head>
+<body>
+<div class="stars">
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+</div>
+<div class="container" onclick="toggleMovement()">
+  <div class="sun"></div>
+  <div class="earth">
+    <div class="moon"></div>
+  </div>
+</div>
+<div class="eclipse-info">Eclipse Type: None</div>
+
+
+<script>
+    let isEarthMoving = true;
+    let isMoonMoving = true;
+
+    function toggleMovement() {
+        const earth = document.querySelector('.earth');
+		const sun = document.querySelector('.sun');
+        const moon = document.querySelector('.moon');
+
+        const earthAnimation = getComputedStyle(earth).animationPlayState;
+        const moonAnimation = getComputedStyle(moon).animationPlayState;
+
+        if (earthAnimation === 'running' && moonAnimation === 'running') {
+            // Both Earth and Moon are moving, pause both animations
+            earth.style.animationPlayState = 'paused';
+			moon.style.animationPlayState = 'running';
+            isEarthMoving = false;
+			isMoonMoving = true;
+
+        } else if (earthAnimation === 'paused' && moonAnimation === 'running') {
+            // Earth is stopped, start its animation
+			earth.style.animationPlayState = 'paused';
+            moon.style.animationPlayState = 'paused';
+			isEarthMoving = false;
+            isMoonMoving = false;
+			//calculateEclipseType();
+
+        }
+		else {
+            // Moon is stopped, start its animation
+            earth.style.animationPlayState = 'running';
+            moon.style.animationPlayState = 'running';
+            isMoonMoving = true;
+			isEarthMoving = true;
+			const eclipseInfo = document.querySelector('.eclipse-info');
+            eclipseInfo.textContent = 'Eclipse Type: None';
+        }
+    }
+
+    function calculateEclipseType() {
+		if (!isEarthMoving && !isMoonMoving) {
+			const earth = document.querySelector('.earth');
+			const sun = document.querySelector('.sun');
+			const moon = document.querySelector('.moon');
+
+			// Get the center positions of Earth, Sun, and Moon
+			const earthRect = earth.getBoundingClientRect();
+			const sunRect = sun.getBoundingClientRect();
+			const moonRect = moon.getBoundingClientRect();
+
+			const eX = earthRect.left + earthRect.width / 2;
+			const eY = earthRect.top + earthRect.height / 2;
+			const sX = sunRect.left + sunRect.width / 2;
+			const sY = sunRect.top + sunRect.height / 2;
+			const mX = moonRect.left + moonRect.width / 2;
+			const mY = moonRect.top + moonRect.height / 2;
+
+			// Calculate angles between Earth-Sun line (l1) and Earth-Moon line (l2)
+			const angle1 = Math.atan2(sY - eY, sX - eX) * (180 / Math.PI);
+			const angle2 = Math.atan2(mY - eY, mX - eX) * (180 / Math.PI);
+
+			// Calculate the absolute difference between the angles
+			const a1 = Math.abs(angle1 - angle2);
+
+			// Determine the eclipse type based on the angle difference
+			const eclipseInfo = document.querySelector('.eclipse-info');
+
+			if (a1>=0 && a1<4) {
+				eclipseInfo.textContent = 'Eclipse Type: Complete Solar'
+			} else if (a1>=4 && a1< 39) {
+				eclipseInfo.textContent = 'Eclipse Type: Partial Solar'
+			}  else if (a1>=145 && a1<177) {
+				eclipseInfo.textContent = 'Eclipse Type: Partial Lunar'
+			} else if (a1>=177 && a1<185){
+				eclipseInfo.textContent = 'Eclipse Type: Complete Lunar'
+			} else if(a1>=185 && a1<224){
+                eclipseInfo.textContent = 'Eclipse Type: Partial Lunar'
+            } else if(a1>=317 && a1<356){
+                eclipseInfo.textContent = 'Eclipse Type: Partial Solar'
+            } else if(a1>=356 && a1<360){
+                eclipseInfo.textContent = 'Eclipse Type: Complete Solar'
+            } else {
+                eclipseInfo.textContent = 'Eclipse Type: No Eclipse'
+            }
+
+		}
+    }
+
+    setInterval(calculateEclipseType, 360);
+
+    function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const numStars = 100; // Increase the number of stars as desired
+
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.top = '${Math.random() * 100}%';
+                star.style.left = '${Math.random() * 100}%';
+                star.style.animationDelay = '${Math.random() * 2}s';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        createStars();
+</script>
+</body>
+</html>
